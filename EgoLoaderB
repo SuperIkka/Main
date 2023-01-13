@@ -3959,7 +3959,7 @@ function CheckQuest()
             CFrameQuest = CFrame.new(147.52256774902344, 24.793832778930664, -12775.3583984375)
             CFrameMon = CFrame.new(147.52256774902344, 24.793832778930664, -12775.3583984375)
 			SPAWNPOINT = "Chocolate"
-elseif MyLevel == 2375 or MyLevel <= 2400 or _G.Select_Mob_Farm == "Candy Rebel [Lv. 2375]" then
+		elseif MyLevel == 2375 or MyLevel <= 2400 or _G.Select_Mob_Farm == "Candy Rebel [Lv. 2375]" then
             Ms = "Candy Rebel [Lv. 2375]"
             NameQuest = "ChocQuest2"
             LevelQuest = 2
@@ -6603,7 +6603,7 @@ Setting:Line()
 
 Setting:Button("Copy Discord Link",function()
  
- setclipboard("https://discord.gg/qgD5h4yNm4")
+ setclipboard("https://discord.gg/2wvMCnU5bF")
  end)
 
 Setting:Label("\\\\\  Setting  //")
@@ -6842,31 +6842,53 @@ end)
 				end)
 			end
 		end)
-Setting:Toggle("Fast Attack [Normal]",true,function(Fast)
-    _G.FastAttack = Fast
+Setting:Toggle("Fast Attack [New]",true,function(value)
+ _G.FastAttack = value
 end)
 
- local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-local CombatFramework = debug.getupvalues(Module)[2]
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+-- [[ Fast Attack Fixed / Shadow Hub / Dont edit , or ur will be messed up! ]]
+
+-- [[ Properties ]]
+
+require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+
+xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+
+xShadowx = debug.getupvalues(xShadowFastAttackx)[2]
 
 spawn(function()
-    while true do
+    game:GetService("RunService").RenderStepped:Connect(function()
         if _G.FastAttack then
-            pcall(function()
-                CameraShakerR:Stop()
-                CombatFramework.activeController.attacking = false
-                CombatFramework.activeController.timeToNextAttack = 0
-                CombatFramework.activeController.increment = 3
-                CombatFramework.activeController.hitboxMagnitude = 100
-                CombatFramework.activeController.blocking = false
-                CombatFramework.activeController.timeToNextBlock = 0
-                CombatFramework.activeController.focusStart = 0
-                CombatFramework.activeController.humanoid.AutoRotate = true
-            end)
+            if typeof(xShadowx) == "table" then
+                pcall(function()
+                    xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    xShadowx.activeController.timeToNextAttack = 0
+                    xShadowx.activeController.hitboxMagnitude = 200
+                    xShadowx.activeController.active = false
+                    xShadowx.activeController.timeToNextBlock = 0
+                    xShadowx.activeController.focusStart = 0
+                    xShadowx.activeController.increment = 4
+                    xShadowx.activeController.blocking = false
+                    xShadowx.activeController.attacking = false
+                    xShadowx.activeController.humanoid.AutoRotate = 50
+                end)
+            end
         end
-        task.wait()
-    end
+    end)
+end)
+
+Setting:Toggle("Auto Ken Haki",_G.Auto_Ken,function(vu)
+	_G.Auto_Ken = vu
+end)
+spawn(function()
+	while wait(2) do
+		pcall(function()
+			if _G.Auto_Ken then
+				game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken",true)
+				wait(7)
+			end
+		end)
+	end
 end)
 
 Setting:Toggle("Auto Click",false,function(value)
