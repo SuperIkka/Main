@@ -1,2 +1,2 @@
-local key = "EGOKEY-YET"
+local key = "EGOKEY-KEEP"
 return key
