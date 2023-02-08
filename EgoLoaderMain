@@ -321,7 +321,7 @@ confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
 confirm.TextSize = 14.000
 confirm.MouseButton1Click:Connect(function()
 DiscordLib:Notification("Key System" , "Key Check, Executing Script..." , 3)
-if keyhere.Text == "EGOKEY-PROP" then
+if keyhere.Text == "EGOKEY-POOP" then
 wait(3)
 ZENHUB:Destroy()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SuperIkka/Main/main/EgoLoaderB"))()
