@@ -28,7 +28,7 @@ mainopens.Parent = mainopen
  loki.BackgroundTransparency = 1.000
  loki.Position = UDim2.new(-0.0529999994, 0, -0.244000003, 0)
  loki.Size = UDim2.new(0, 69, 0, 62)
- loki.Image = "rbxassetid://"
+ loki.Image = "rbxassetid://12426728665"
  
  posto.Name = "posto"
  posto.Parent = mainopen
