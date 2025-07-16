@@ -662,7 +662,7 @@ ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.218742043, 0, -0.155235752, 0)
 ImageButton.Size = UDim2.new(0, 64, 0, 64)
-ImageButton.Image = "rbxassetid://115929315222312"
+ImageButton.Image = "rbxassetid://130797978710477"
 ImageButton.Draggable = true
 ImageButton.MouseButton1Click:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
